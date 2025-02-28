@@ -7,15 +7,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { NETFLIX_BG } from "../utils/constants";
 
 const Login = () => {
   const [isSignedIn, setIsSignedIn] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const email = useRef("");
   const password = useRef("");
   const fullname = useRef("");
@@ -25,10 +25,15 @@ const Login = () => {
     const secret = password.current.value;
     const name = fullname.current.value;
     const message = validateFormFields(mail, secret);
+
     setErrorMessage(message);
+
     console.log(mail, secret);
+
     if (message) return;
+
     console.log(isSignedIn);
+
     if (!isSignedIn) {
       //Sign Up Logic
       createUserWithEmailAndPassword(
@@ -50,10 +55,9 @@ const Login = () => {
             })
             .catch((error) => {
               console.log(error.message);
-              navigate("/error");
             });
           console.log(user);
-          navigate("/browse");
+
           // ...
         })
         .catch((error) => {
@@ -69,7 +73,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
+
           // ...
         })
         .catch((error) => {
@@ -86,8 +90,9 @@ const Login = () => {
     <div className="min-h-screen bg-cover bg-no-repeat bg-center">
       <Header />
       <div className="absolute w-full h-full">
-        <img className="w-full h-full object-cover"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/0cf2c109-3af1-4a9d-87d7-aecfac5fe881/web/IN-en-20250217-TRIFECTA-perspective_c3376e06-9aff-4657-aafb-91256a597b7c_large.jpg"
+        <img
+          className="w-full h-full object-cover"
+          src={NETFLIX_BG}
           alt="netflix-bg"
         />
       </div>
