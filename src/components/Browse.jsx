@@ -1,9 +1,20 @@
-import Header from "./Header"
+import Header from "./Header";
+import useGetNowPlayingMovieList from "./hooks/useGetNowPlayingMovieList";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
-  return (
-    <div><Header /></div>
-  )
-}
+  useGetNowPlayingMovieList();
+  // const movielist = useSelector((state) => state.movies.nowPlayingMovies);
 
-export default Browse
+  // console.log(movielist);
+  return (
+    <div>
+      <Header />
+      <MainContainer />
+      <SecondaryContainer />
+    </div>
+  );
+};
+
+export default Browse;
