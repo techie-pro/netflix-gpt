@@ -8,7 +8,7 @@ const VideoTitle = ({ title, overview }) => {
       <div className="">
         <button className="bg-white bg-opacity-50 hover:bg-gray-300  text-black font-bold px-6 py-3 text-lg rounded-lg cursor-pointer">
           <div className="flex hover:bg-opacity-50">
-            <PlayIcon className="w-5 h-5 mr-2 mt-1" /> Play
+            <PlayIcon className="w-4 h-5 mr-1 mt-1" /> Play
           </div>
         </button>
         <button className="bg-gray-700  bg-opacity-50 hover:bg-gray-600 mx-2 cursor-pointer text-white font-bold px-4 py-3 text-lg rounded-lg">

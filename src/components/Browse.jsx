@@ -1,13 +1,17 @@
 import Header from "./Header";
 import useGetNowPlayingMovieList from "./hooks/useGetNowPlayingMovieList";
+import usePopularMovies from "./hooks/usePopularMovies";
+import useTopRated from "./hooks/useTopRated";
+import useUpComing from "./hooks/useUpcoming";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
   useGetNowPlayingMovieList();
-  // const movielist = useSelector((state) => state.movies.nowPlayingMovies);
+  usePopularMovies();
+  useTopRated();
+  useUpComing();
 
-  // console.log(movielist);
   return (
     <div>
       <Header />

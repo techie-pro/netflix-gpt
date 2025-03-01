@@ -52,14 +52,13 @@ const Header = () => {
               src={USER_ICON}
               alt="usericon"
             />
-            <p className="mt-1 font-bold ">{user?.displayName}</p>
+            <button
+              onClick={handleSignOut}
+              className="mt-1 font-bold text-white pr-6 rounded-lg cursor-pointer "
+            >
+              {user?.displayName}
+            </button>
           </div>
-          <button
-            className="font-bold p-3 text-white rounded-lg cursor-pointer"
-            onClick={handleSignOut}
-          >
-            Sign Out
-          </button>
         </div>
       )}
     </div>
